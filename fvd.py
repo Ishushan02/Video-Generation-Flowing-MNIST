@@ -2,7 +2,7 @@ import torch
 import os
 import math
 import torch.nn.functional as F
-
+# from Hugging Face
 # https://github.com/universome/fvd-comparison
 
 
