@@ -26,12 +26,12 @@ The first approach uses a **ConvLSTM model**, which integrates convolutional ope
 
 * Input: First 10 frames of a sequence
 * Output: Next 10 predicted frames
-* Architecture: 3-layer ConvLSTM network
+* Architecture: Convolutional-LSTM network
 * Loss Function: Mean Squared Error (MSE)
 * Optimizer: Adam
 * Trained for: 70 Epochs
 
-### Generated Video (ConvLSTM Prediction)
+### Generated Video
 
 Below is a 20-frame video result (10 input + 10 generated) from the trained ConvLSTM model:
 
