@@ -38,3 +38,8 @@ Below is a 20-frame video result (10 input + 10 generated) from the trained Conv
 ![ConvLSTM Output](datavisualization/output-70-epochs.gif)
 
 ---
+## Approach 2 VIT
+    - Used 10:10 samples for prediction fot MSE Loss till 0.0146..
+    - Now introducing Perceptual Loss (I am combining VGG and MSE) anlong with itterative prediction
+
+    
