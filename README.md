@@ -50,15 +50,6 @@ Sure! Here's a **short and concise `README.md`** summarizing your Vision Transfo
 
 ---
 
-# Video Generation - Moving MNIST
-
-This project explores deep learning for video frame prediction using the **Moving MNIST** dataset.
-
-## 🗃 Dataset
-
-* **Moving MNIST**: 20-frame sequences of two digits moving within a 64×64 grayscale frame.
-* Task: Predict the next 10 frames from the first 10.
-
 ## Approach 2: Vision Transformer (ViT)
 
 A Transformer-based model using patch embeddings and spatiotemporal attention to predict future frames.
