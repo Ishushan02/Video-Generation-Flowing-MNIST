@@ -33,20 +33,12 @@ The first approach uses a **ConvLSTM model**, which integrates convolutional ope
 
 ### Generated Video
 
-Sample ofis a 20-frame video result from the trained ConvLSTM model:
+Sample of a 20-frame video result from the trained ConvLSTM model:
 
 ![ConvLSTM Output](datavisualization/output-70-epochs.gif)
 
-![Implementation](conv-lstm-model.ipynb)
+<!-- ![Implementation](conv-lstm-model.ipynb) -->
 
-
----
-## Approach 2 VIT
-    - Used 10:10 samples for prediction fot MSE Loss till 0.0146..
-    - Now introducing Perceptual Loss (I am combining VGG and MSE) anlong with itterative prediction
-
-    
-Sure! Here's a **short and concise `README.md`** summarizing your Vision Transformer-based video generation model:
 
 ---
 
@@ -65,8 +57,10 @@ A Transformer-based model using patch embeddings and spatiotemporal attention to
 
 ### Generated Video
 
-Sample ofis a 20-frame video result from the trained ConvLSTM model:
+Sample of a 20-frame video result from the trained ConvLSTM model:
 
 ![VIT based Architecture](datavisualization/model-2-200.gif)
 
-![Implementation](vision-transformer-model-2.ipynb)
+<!-- [Implementation](vision-transformer-model-2.ipynb) -->
+
+---
