@@ -33,9 +33,12 @@ The first approach uses a **ConvLSTM model**, which integrates convolutional ope
 
 ### Generated Video
 
-Below is a 20-frame video result (10 input + 10 generated) from the trained ConvLSTM model:
+Sample ofis a 20-frame video result from the trained ConvLSTM model:
 
 ![ConvLSTM Output](datavisualization/output-70-epochs.gif)
+
+![Implementation](conv-lstm-model.ipynb)
+
 
 ---
 ## Approach 2 VIT
@@ -43,3 +46,36 @@ Below is a 20-frame video result (10 input + 10 generated) from the trained Conv
     - Now introducing Perceptual Loss (I am combining VGG and MSE) anlong with itterative prediction
 
     
+Sure! Here's a **short and concise `README.md`** summarizing your Vision Transformer-based video generation model:
+
+---
+
+# Video Generation - Moving MNIST
+
+This project explores deep learning for video frame prediction using the **Moving MNIST** dataset.
+
+## 🗃 Dataset
+
+* **Moving MNIST**: 20-frame sequences of two digits moving within a 64×64 grayscale frame.
+* Task: Predict the next 10 frames from the first 10.
+
+## Approach 2: Vision Transformer (ViT)
+
+A Transformer-based model using patch embeddings and spatiotemporal attention to predict future frames.
+
+### Model Highlights
+
+* **Patch Embedding**: Each 64×64 frame is divided into 8×8 patches.
+* **Transformer Encoder**: 6-layer encoder captures space-time relations.
+* **Decoder**: Linear + ConvTranspose layers reconstruct full frames.
+* **Input/Output**: 10 input frames → 10 predicted frames
+* **Loss**: MSE along with integrating VGG-based Perceptual Loss.
+
+
+### Generated Video
+
+Sample ofis a 20-frame video result from the trained ConvLSTM model:
+
+![VIT based Architecture](datavisualization/model-2-200.gif)
+
+![Implementation](vision-transformer-model-2.ipynb)
