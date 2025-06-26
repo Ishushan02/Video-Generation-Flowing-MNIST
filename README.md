@@ -57,7 +57,7 @@ A Transformer-based model using patch embeddings and spatiotemporal attention to
 
 ### Generated Video
 
-Sample of a 20-frame video result from the trained ConvLSTM model:
+Sample of a 20-frame video result from the trained VIT model:
 
 ![VIT based Architecture](datavisualization/model-2-200.gif)
 
