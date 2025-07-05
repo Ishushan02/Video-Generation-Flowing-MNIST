@@ -64,3 +64,15 @@ Sample of a 20-frame video result from the trained VIT model:
 <!-- [Implementation](vision-transformer-model-2.ipynb) -->
 
 ---
+
+## Approach 3 : VQVAE along with Transformer
+
+### Model Highlights - VQVAE
+
+
+| Utilization (%)       | Perplexity (for codebook size 128) | Interpretation                       |
+| --------------------- | ---------------------------------- | ------------------------------------ |
+| < 10% (e.g., <13)     | Very low                           | Codebook collapse – bad              |
+| 20–50% (e.g., 25–64)  | Balanced                           | Generally good                       |
+| 60–90% (e.g., 77–115) | High usage                         | Possibly okay, but watch for overuse |
+| \~100%+ (128)         | Uniform                            | Might suggest over-regularization    |
