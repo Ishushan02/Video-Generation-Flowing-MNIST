@@ -74,7 +74,9 @@ Sample of a 20-frame video result from the trained VIT model:
 
 ### Plots of VQVAE:
 ### 1. Total VQ-VAE Loss Over Epochs
-![Total Loss over Epochs](datavisualization/VQVAE_Loss.png)
+<!-- ![Total Loss over Epochs](datavisualization/VQVAE_Loss.png) -->
+<img src="datavisualization/VQVAE_Loss.png" alt="Total Loss over Epochs" width="400" height="150"/>
+
 
 ### 2. Reconstruction Loss Over Epochs
 ![Reconstruction Loss over Epochs](datavisualization/Reconstruction_Loss.png)
