@@ -96,8 +96,8 @@ Sure! Here's a side-by-side comparison of the input and output images:
     <th>Output</th>
   </tr>
   <tr>
-    <td><img src="datavisualization/inp.png" width="400" height="450"/></td>
-    <td><img src="datavisualization/op.png" width="400" height="450"/></td>
+    <td><img src="datavisualization/inp.gif"/></td>
+    <td><img src="datavisualization/op.gif"/></td>
   </tr>
 </table>
 
