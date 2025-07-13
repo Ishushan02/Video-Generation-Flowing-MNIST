@@ -88,16 +88,14 @@ Sample of a 20-frame video result from the trained VIT model:
 <img src="datavisualization/Perplexity.png" width="400" height="450"/>
 
 #### Preliminary Results
-Sure! Here's a side-by-side comparison of the input and output images:
-
 <table>
   <tr>
     <th>Input</th>
     <th>Output</th>
   </tr>
   <tr>
-    <td><img src="datavisualization/inp.gif"/></td>
-    <td><img src="datavisualization/op.gif"/></td>
+    <td><img src="datavisualization/inp.gif" width="100" height="100"/></td>
+    <td><img src="datavisualization/op.gif" width="100" height="100"/></td>
   </tr>
 </table>
 
