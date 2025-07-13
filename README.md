@@ -66,7 +66,7 @@ Sample of a 20-frame video result from the trained VIT model:
 
 ## Approach 3 : VQVAE along with Transformer
 
-### Model Highlights - VQVAE
+###  VQVAE
 * codeBookdim: 128
 * embedDim: 64
 * hiddenDim: 256
