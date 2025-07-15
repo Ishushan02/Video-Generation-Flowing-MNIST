@@ -16,8 +16,8 @@ import wandb
 
 wandb.init(
     project="Transformer-Decoder",  
-    name="experiment-1",    
-    id="uqcub7jq",  
+    name="experiment-2",    
+    id="j4btpbfp",  
     resume="allow",
     # config={                       
     #     "epochs": 1000,
@@ -290,7 +290,7 @@ class VideoSequenceData(Dataset):
 
 
 class TransformerDecoderModel(nn.Module):
-    def __init__(self, sequence_len, num_tokens, codebook_size, embedding_dim, num_layers, numHeads, feedForwardDim=2048, drop=0.2):
+    def __init__(self, sequence_len, num_tokens, codebook_size, embedding_dim, num_layers, numHeads, feedForwardDim=1024, drop=0.1):
         super().__init__()
         self.sequence_len = sequence_len
         self.num_tokens = num_tokens
@@ -305,10 +305,12 @@ class TransformerDecoderModel(nn.Module):
             nhead=numHeads, 
             dim_feedforward=feedForwardDim, 
             dropout=drop, 
-            batch_first=True
+            batch_first=True,
+            norm_first=True,
         )
         self.decoder = nn.TransformerEncoder(self.decoder_layer, num_layers=num_layers)
         self.dropout = nn.Dropout(drop)
+        self.norm = nn.LayerNorm(embedding_dim)
         self.output_layer = nn.Linear(embedding_dim, codebook_size)
 
     def forward(self, x):
@@ -331,7 +333,7 @@ class TransformerDecoderModel(nn.Module):
         ).to(x.device)
         
         decoder_out = self.decoder(decoder_input, mask=causal_mask)
-        
+        decoder_out = self.norm(decoder_out)
         logits = self.output_layer(decoder_out)
         return logits
 
@@ -353,23 +355,25 @@ num_tokens=256
 sequence_len = 10
 learning_rate = 3e-4
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-numHeads = 4
-dropout = 0.2
-num_layers = 6
-embed_dim = 1024
+numHeads = 8
+dropout = 0.1
+num_layers = 4
+embed_dim = 512
 
 torchDataset = VideoSequenceData(data, modelA)
-dataloader = DataLoader(torchDataset, batch_size=batch_size, shuffle = True)
+dataloader = DataLoader(torchDataset, batch_size=batch_size, shuffle = True, num_workers=8, persistent_workers=True)
 modelB = TransformerDecoderModel( sequence_len=sequence_len,num_tokens = num_tokens, codebook_size=codeBookdim, embedding_dim=embed_dim, num_layers=num_layers, numHeads=numHeads).to(device)
 modelB = torch.nn.DataParallel(modelB)
 modelB.to(device)
 
 lossFn =  nn.CrossEntropyLoss()
-optimizerB = torch.optim.AdamW(params=modelB.parameters(), lr=learning_rate, weight_decay=1e-5)
-schedulerB = torch.optim.lr_scheduler.OneCycleLR(
-    optimizerB, max_lr=3e-4, steps_per_epoch=len(dataloader),
-    epochs=epochs, anneal_strategy='cos', final_div_factor=1e4
-)
+optimizerB = torch.optim.AdamW(params=modelB.parameters(), lr=learning_rate)#, weight_decay=1e-5)
+# schedulerB = torch.optim.lr_scheduler.OneCycleLR(
+#     optimizerB, max_lr=3e-4, steps_per_epoch=len(dataloader),
+#     epochs=epochs, anneal_strategy='cos', final_div_factor=1e4
+# )
+schedulerB = StepLR(optimizerB, step_size=10, gamma=0.5)
+
 
 epochs = 1000
 
@@ -401,6 +405,7 @@ for each_epoch in range(epochs):
     # break
 
     lossVal /= len(dataloader)   
+    loop.set_postfix({"Final Loss: ": f"{lossVal}"})
     
     torch.save(modelB.state_dict(), "./model/TDecoder/tdecoder.pt")
     wandb.log({
