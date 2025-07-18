@@ -87,8 +87,8 @@ Sample of a 20-frame video result from the trained VIT model:
 #### Results
 <table>
   <tr>
-    <th>Input</th>
-    <th>Output</th>
+    <th>Input (10 Frames)</th>
+    <th>Output (20 Frames)</th>
   </tr>
   <tr>
     <td><img src="datavisualization/inp.gif" width="100" height="100"/></td>
