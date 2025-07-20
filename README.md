@@ -73,7 +73,7 @@ Sample of a 20-frame video result from the trained VIT model:
 * Optimizer: Different learning rate for encoder, decoder, and for CodeBook vectorization
 
 ### Training Plots:
-###  Total VQ-VAE Loss Over Epochs
+<!-- ###  Total VQ-VAE Loss Over Epochs -->
 <!-- <img src="datavisualization/VQVAE_Loss.png" width="400" height="450"/>
 
 ### Reconstruction Loss Over Epochs
@@ -88,21 +88,21 @@ Sample of a 20-frame video result from the trained VIT model:
 <table>
   <tr>
     <td>
-      <h3>Total VQ-VAE Loss Over Epochs</h3>
+      <h4>Total VQ-VAE Loss Over Epochs</h4>
       <img src="datavisualization/VQVAE_Loss.png" width="400" height="450"/>
     </td>
     <td>
-      <h3>Reconstruction Loss Over Epochs</h3>
+      <h4>Reconstruction Loss Over Epochs</h4>
       <img src="datavisualization/Reconstruction_Loss.png" width="400" height="450"/>
     </td>
   </tr>
   <tr>
     <td>
-      <h3>Codebook Perplexity Over Epochs</h3>
+      <h4>Codebook Perplexity Over Epochs</h4>
       <img src="datavisualization/Perplexity.png" width="400" height="450"/>
     </td>
     <td>
-      <h3>Transformer-Decoder Over Epochs</h3>
+      <h4>Transformer-Decoder Over Epochs</h4>
       <img src="datavisualization/tDecoder.png" width="400" height="450"/>
     </td>
   </tr>
