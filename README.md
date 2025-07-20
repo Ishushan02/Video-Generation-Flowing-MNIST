@@ -10,12 +10,6 @@ The **Moving MNIST** dataset consists of 10,000 video sequences. Each sequence c
 * **Two handwritten digits** moving independently and randomly within the frame
 * Digits **bounce off the frame boundaries** and often **intersect or overlap**
 
-### Example Input Video
-
-Below is a sample sequence from the Moving MNIST dataset:
-
-![Moving MNIST Sample](datavisualization/moving_mnist_2.gif)
-
 ---
 
 ## Approach 1: ConvLSTM Model
@@ -66,11 +60,12 @@ Sample of a 20-frame video result from the trained VIT model:
 
 ## Approach 3 : VQVAE along with Transformer
 
-###  VQVAE
+### Model Highlights
 * codeBookdim: 128
 * embedDim: 64
 * hiddenDim: 256
 * Optimizer: Different learning rate for encoder, decoder, and for CodeBook vectorization
+* Trained the Codebook Vector Over Time with Transformer Decoder Only Model
 
 ### Training Plots:
 <!-- ###  Total VQ-VAE Loss Over Epochs -->
@@ -88,21 +83,29 @@ Sample of a 20-frame video result from the trained VIT model:
 <table>
   <tr>
     <td>
+      <div align="center">
       <h4>Total VQ-VAE Loss Over Epochs</h4>
+      </div>
       <img src="datavisualization/VQVAE_Loss.png" width="400" height="450"/>
     </td>
     <td>
+      <div align="center">
       <h4>Reconstruction Loss Over Epochs</h4>
+      </div>
       <img src="datavisualization/Reconstruction_Loss.png" width="400" height="450"/>
     </td>
   </tr>
   <tr>
     <td>
+      <div align="center">
       <h4>Codebook Perplexity Over Epochs</h4>
+      </div>
       <img src="datavisualization/Perplexity.png" width="400" height="450"/>
     </td>
     <td>
+      <div align="center">
       <h4>Transformer-Decoder Over Epochs</h4>
+      </div>
       <img src="datavisualization/tDecoder.png" width="400" height="450"/>
     </td>
   </tr>
