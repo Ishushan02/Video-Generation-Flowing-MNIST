@@ -111,7 +111,7 @@ Sample of a 20-frame video result from the trained VIT model:
   </tr>
 </table>
 
-#### Results
+### Generated Video
 <table>
   <tr>
     <th>Input (10 Frames)</th>
@@ -124,8 +124,3 @@ Sample of a 20-frame video result from the trained VIT model:
 </table>
 
 ---
-
-## Approach 4 : Text to Video Generation
-
-
-### Step 1 Dataset Creation
